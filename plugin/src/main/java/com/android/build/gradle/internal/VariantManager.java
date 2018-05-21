@@ -265,7 +265,7 @@ public class VariantManager implements VariantModel {
         variantFactory.preVariantWork(project);
 
         final TaskFactory tasks = new TaskContainerAdaptor(project.getTasks());
-        TestLog.log("Test", "createAndroidTasks variantDataList.size=" + variantDataList.size());
+//        TestLog.log("Test", "createAndroidTasks variantDataList.size=" + variantDataList.size());
         if (variantDataList.isEmpty()) {
             recorder.record(
                     ExecutionType.VARIANT_MANAGER_CREATE_VARIANTS,
@@ -300,10 +300,10 @@ public class VariantManager implements VariantModel {
             final BaseVariantData<?> variantData) {
         final VariantScope variantScope = variantData.getScope();
         if (variantData.getType().isForTesting()) {
-            TestLog.log("Test","createAssembleTaskForVariantData isForTesting true");
+//            TestLog.log("Test","createAssembleTaskForVariantData isForTesting true");
             variantScope.setAssembleTask(taskManager.createAssembleTask(tasks, variantData));
         } else {
-            TestLog.log("Test","createAssembleTaskForVariantData isForTesting false");
+//            TestLog.log("Test","createAssembleTaskForVariantData isForTesting false");
             BuildTypeData buildTypeData =
                     buildTypes.get(variantData.getVariantConfiguration().getBuildType().getName());
 
@@ -476,7 +476,7 @@ public class VariantManager implements VariantModel {
      * Create all variants.
      */
     public void populateVariantDataList() {
-        TestLog.log("Test", "populateVariantDataList productFlavors.size=" + productFlavors.size());
+//        TestLog.log("Test", "populateVariantDataList productFlavors.size=" + productFlavors.size());
         if (productFlavors.isEmpty()) {
             createVariantDataForProductFlavors(Collections.emptyList());
         } else {
@@ -510,7 +510,7 @@ public class VariantManager implements VariantModel {
             @NonNull List<? extends ProductFlavor> productFlavorList) {
         BuildTypeData buildTypeData = buildTypes.get(buildType.getName());
 
-        TestLog.log("Test", "createVariantData buildtype=" + buildType.getName());
+//        TestLog.log("Test", "createVariantData buildtype=" + buildType.getName());
 
         GradleVariantConfiguration variantConfig =
                 GradleVariantConfiguration.getBuilderForExtension(extension)
@@ -536,8 +536,8 @@ public class VariantManager implements VariantModel {
 
         // We must first add the flavors to the variant config, in order to get the proper
         // variant-specific and multi-flavor name as we add/create the variant providers later.
-        TestLog.log("Test", "createVariantData productFlavorList size=" + productFlavorList.size());
-        TestLog.log("Test", "createVariantData productFlavors size=" + productFlavors.size());
+//        TestLog.log("Test", "createVariantData productFlavorList size=" + productFlavorList.size());
+//        TestLog.log("Test", "createVariantData productFlavors size=" + productFlavors.size());
 
         for (ProductFlavor productFlavor : productFlavorList) {
             ProductFlavorData<CoreProductFlavor> data = productFlavors.get(
@@ -741,9 +741,9 @@ public class VariantManager implements VariantModel {
      */
     private void createVariantDataForProductFlavors(
             @NonNull List<ProductFlavor> productFlavorList) {
-        TestLog.log("Test", "createVariantDataForProductFlavors productFlavorList.size=" + productFlavorList.size());
+//        TestLog.log("Test", "createVariantDataForProductFlavors productFlavorList.size=" + productFlavorList.size());
         for (ProductFlavor flavor : productFlavorList) {
-            TestLog.log("Test", "createVariantDataForProductFlavors flavor name=" + flavor.getName());
+//            TestLog.log("Test", "createVariantDataForProductFlavors flavor name=" + flavor.getName());
         }
 
         BuildTypeData testBuildTypeData = null;
@@ -813,7 +813,7 @@ public class VariantManager implements VariantModel {
                 BaseVariantData<?> variantData = createVariantData(
                         buildTypeData.getBuildType(),
                         productFlavorList);
-                TestLog.log("Test", "variantdata name=" + variantData.getName());
+//                TestLog.log("Test", "variantdata name=" + variantData.getName());
                 variantDataList.add(variantData);
 
                 GradleVariantConfiguration variantConfig = variantData.getVariantConfiguration();
