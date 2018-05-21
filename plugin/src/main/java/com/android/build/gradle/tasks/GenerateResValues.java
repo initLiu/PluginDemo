@@ -106,15 +106,15 @@ public class GenerateResValues extends BaseTask {
 
     @TaskAction
     void generate() throws IOException, ParserConfigurationException {
-//        TestLog.log("Test","GenerateResValues generate ");
+//        TestLog.log("GenerateResValues","GenerateResValues generate ");
         File folder = getResOutputDir();
         List<Object> resolvedItems = getItems();
 
         if (resolvedItems.isEmpty()) {
-//            TestLog.log("Test", "GenerateResValues generate empty " + folder.getAbsolutePath().toString());
+//            TestLog.log("GenerateResValues", "GenerateResValues generate empty " + folder.getAbsolutePath().toString());
             FileUtils.cleanOutputDir(folder);
         } else {
-//            TestLog.log("Test", "GenerateResValues generate not empty " + folder.getAbsolutePath().toString());
+//            TestLog.log("GenerateResValues", "GenerateResValues generate not empty " + folder.getAbsolutePath().toString());
             ResValueGenerator generator = new ResValueGenerator(folder);
             generator.addItems(getItems());
 
