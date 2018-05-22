@@ -144,6 +144,7 @@ public class ProcessAndroidResources extends IncrementalTask {
         TestLog.log(TAG, "doFullTaskAction srcOut dir=" + srcOut.getAbsolutePath());
         @Nullable
         File resOutBaseNameFile = getPackageOutputFile();
+        TestLog.log(TAG, "doFullTaskAction resOutBaseNameFile=" + (resOutBaseNameFile == null ? "" : resOutBaseNameFile.getAbsolutePath()));
 
         // If are in instant run mode and we have an instant run enabled manifest
         File instantRunManifest = getInstantRunManifestFile();
